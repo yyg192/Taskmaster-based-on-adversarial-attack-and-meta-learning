@@ -1,0 +1,43 @@
+[DEFAULT]
+project_root = E:/android_malware_simulator_attack
+adv_train_root = %(project_root)s/adv_training
+adv_samples_root = %(project_root)s/adv_samples
+database_root = %(project_root)s/database
+preprocess_root = %(project_root)s/preprocess_dir
+
+[feature_preprocess.drebin]
+use_interdependent_features = False
+feature_mp = binary
+
+[virustotal_2018_5M_17M]
+dataset_dir = %(database_root)s/virustotal_2018_5M_17M
+tmp_dir = %(preprocess_root)s/virustotal_2018_5M_17M/tmp_dir
+virustotal_2018_5M_17M_preprocess_root = %(preprocess_root)s/virustotal_2018_5M_17M
+sample_vectors = %(virustotal_2018_5M_17M_preprocess_root)s/malware_sample_vectors_4096
+sample_labels = %(virustotal_2018_5M_17M_preprocess_root)s/malware_sample_labels_4096
+
+[androzoo_benware_3M_17M]
+dataset_dir = %(database_root)s/androzoo_benware_3M_17M
+tmp_dir = %(preprocess_root)s/androzoo_benware_3M_17M/tmp_dir
+androzoo_benware_preprocess_root = %(preprocess_root)s/androzoo_benware_3M_17M
+sample_vectors = %(androzoo_benware_preprocess_root)s/benware_sample_vectors_4096
+sample_labels = %(androzoo_benware_preprocess_root)s/benware_sample_labels_4096
+
+[virustotal_2018_5M_17M_AND_androzoo_benware_3M_17M]
+vocabulary = %(preprocess_root)s/virustotal_2018_5M_17M_AND_androzoo_benware_3M_17M/vocabulary_4096
+vocab_info = %(preprocess_root)s/virustotal_2018_5M_17M_AND_androzoo_benware_3M_17M/vocab_info_4096
+normalizer = %(preprocess_root)s/virustotal_2018_5M_17M_AND_androzoo_benware_3M_17M/normalizer_4096
+
+
+[advtraining.drebin]
+advtraining_drebin_root = %(adv_train_root)s
+advsamples_drebin_root = %(adv_samples_root)s
+
+[metatraining.drebin]
+model_simulator_log_dir = %(project_root)s/tensorboard_log_dir/
+
+
+
+
+
+
